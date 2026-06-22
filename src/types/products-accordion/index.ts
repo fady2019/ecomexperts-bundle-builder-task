@@ -1,11 +1,11 @@
-import type { TProduct, TProductKey } from '../product';
+import type { TProduct, TProductKey } from '@/types/product';
 
 export type TProductAccordionStep = {
     id: TProductKey;
     title: string;
     TitleIcon: React.FC<React.SVGProps<SVGSVGElement>>;
     products: TProduct[];
-    nextStepBtnLabel: string;
+    nextStepBtnLabel?: string;
 };
 
 export type TProductAccordionHeaderProps = {
@@ -19,5 +19,6 @@ export type TProductAccordionHeaderProps = {
 export type TProductAccordionBodyProps = {
     productKey: TProductKey;
     products: TProduct[];
-    nextStepBtnLabel: string;
+    nextStepBtnLabel?: string;
+    openNext: () => void;
 };

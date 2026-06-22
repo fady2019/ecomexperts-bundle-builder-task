@@ -23,13 +23,22 @@ const Accordion: React.FC<TAccordionProps> = (props) => {
         });
     };
 
+    const handleOpenNext = (currItemIdx: number) => {
+        if (currItemIdx === items.length - 1) {
+            return;
+        }
+
+        setOpenItems(new Set([items[currItemIdx + 1].id]));
+    };
+
     return (
         <div className="flex flex-col gap-1.25">
-            {items.map((item) => (
+            {items.map((item, idx) => (
                 <AccordionItem
                     key={item.id}
                     {...item}
                     isOpened={openedItems.has(item.id)}
+                    openNextHandler={handleOpenNext.bind(null, idx)}
                     onToggle={handleItemToggling}
                 />
             ))}

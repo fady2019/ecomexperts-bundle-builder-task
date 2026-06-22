@@ -4,7 +4,7 @@ import { twJoin } from 'tailwind-merge';
 import type { TAccordionItemProps } from '@/types/accordion';
 
 const AccordionItem: React.FC<TAccordionItemProps> = (props) => {
-    const { id, header, body, isOpened, onToggle } = props;
+    const { id, header, body, isOpened, openNextHandler, onToggle } = props;
 
     return (
         <div className={twJoin(isOpened && 'bg-bg-3 rounded-[10px]')}>
@@ -17,7 +17,7 @@ const AccordionItem: React.FC<TAccordionItemProps> = (props) => {
                 {typeof header === 'function' ? header(isOpened) : header}
             </div>
 
-            {isOpened && <div>{typeof body === 'function' ? body(isOpened) : body}</div>}
+            {isOpened && <div>{typeof body === 'function' ? body(isOpened, openNextHandler) : body}</div>}
         </div>
     );
 };

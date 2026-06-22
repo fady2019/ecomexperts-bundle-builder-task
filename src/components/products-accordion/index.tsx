@@ -20,16 +20,27 @@ const ProductsAccordion = () => {
             title: 'Choose your cameras',
             TitleIcon: Cameras,
             products: cameras,
+            nextStepBtnLabel: 'Choose your plan',
+        },
+        {
+            id: 'plans',
+            title: 'Choose your plan',
+            TitleIcon: Plan,
+            products: plans,
             nextStepBtnLabel: 'Choose your sensors',
         },
-        { id: 'plans', title: 'Choose your plan', TitleIcon: Plan, products: plans, nextStepBtnLabel: '' },
-        { id: 'sensors', title: 'Choose your sensors', TitleIcon: Sensors, products: sensors, nextStepBtnLabel: '' },
+        {
+            id: 'sensors',
+            title: 'Choose your sensors',
+            TitleIcon: Sensors,
+            products: sensors,
+            nextStepBtnLabel: 'Add extra protection',
+        },
         {
             id: 'accessories',
             title: 'Add extra protection',
             TitleIcon: Protection,
             products: accessories,
-            nextStepBtnLabel: '',
         },
     ];
 
@@ -49,7 +60,14 @@ const ProductsAccordion = () => {
                         isOpened={isOpened}
                     />
                 ),
-                body: <ProductAccordionBody productKey={id} products={products} nextStepBtnLabel={nextStepBtnLabel} />,
+                body: (_, openNext) => (
+                    <ProductAccordionBody
+                        productKey={id}
+                        products={products}
+                        nextStepBtnLabel={nextStepBtnLabel}
+                        openNext={openNext}
+                    />
+                ),
             }))}
         />
     );
