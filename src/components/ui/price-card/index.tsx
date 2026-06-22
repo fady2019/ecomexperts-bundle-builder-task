@@ -8,13 +8,13 @@ const PriceCard: React.FC<TPriceCardProps> = (props) => {
     const { price, salePrice, linedThroughClassName } = props;
 
     const priceLabel = `$${price}`;
-    const salePriceLabel = !!salePrice ? (salePrice === price ? 'FREE' : `$${salePrice}`) : undefined;
+    const salePriceLabel = salePrice !== price ? (salePrice === 0 ? 'FREE' : `$${salePrice}`) : undefined;
 
     return (
         <div className="flex flex-col items-end gap-0.75">
             <PriceTag
                 priceLabel={priceLabel}
-                linedThrough={!!salePrice}
+                linedThrough={salePrice !== price}
                 linedThroughClassName={linedThroughClassName}
             />
 
