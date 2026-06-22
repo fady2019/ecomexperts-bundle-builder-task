@@ -7,11 +7,12 @@ import type { TProductDiscountBadgeProps } from '@/types/product';
 const ProductDiscountBadge: React.FC<TProductDiscountBadgeProps> = (props) => {
     const { price, salePrice } = props;
 
-    if (salePrice <= 0) {
+    const diff = price - salePrice;
+
+    if (diff <= 0) {
         return null;
     }
 
-    const diff = price - salePrice;
     const savingPercentage = Math.floor((diff / price) * 100);
 
     return <Badge>Save {savingPercentage}%</Badge>;

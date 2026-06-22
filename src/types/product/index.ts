@@ -12,6 +12,8 @@ export type TProduct = {
     variants: TProductVariant[];
     price: number;
     salePrice: number;
+    minRequiredQuantity?: number;
+    maxAllowedQuantity?: number;
 };
 
 export type TProductKey = 'cameras' | 'plans' | 'sensors' | 'accessories';

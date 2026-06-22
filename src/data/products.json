@@ -52,7 +52,7 @@
             "imgUrl": "src/assets/images/cameras/wyze-duo-cam-doorbell.png",
             "variants": [],
             "price": 69.98,
-            "salePrice": 0
+            "salePrice": 69.98
         },
         {
             "id": "wyze-battery-cam-pro",
@@ -68,10 +68,41 @@
                 { "id": "black", "name": "Black", "imgUrl": "src/assets/images/cameras/wyze-battery-cam-pro-black.png" }
             ],
             "price": 89.98,
-            "salePrice": 0
+            "salePrice": 89.98
         }
     ],
     "plans": [],
-    "sensors": [],
-    "accessories": []
+    "sensors": [
+        {
+            "id": "wyze-sense-motion-sensor",
+            "title": "Wyze Sense Motion Sensor",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "imgUrl": "src/assets/images/sensors/wyze-sense-motion-sensor.png",
+            "variants": [],
+            "price": 59.98,
+            "salePrice": 59.98
+        },
+        {
+            "id": "wyze-sense-hub",
+            "title": "Wyze Sense Hub (Required)",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "imgUrl": "src/assets/images/sensors/wyze-sense-hub.png",
+            "variants": [],
+            "price": 29.92,
+            "salePrice": 0,
+            "minRequiredQuantity": 1,
+            "maxAllowedQuantity": 1
+        }
+    ],
+    "accessories": [
+        {
+            "id": "wyze-microsd-card",
+            "title": "Wyze MicroSD Card (256GB)",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "imgUrl": "src/assets/images/accessories/wyze-microsd-card.png",
+            "variants": [],
+            "price": 41.96,
+            "salePrice": 41.96
+        }
+    ]
 }

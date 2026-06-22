@@ -16,7 +16,11 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
 
     const [activeVariantId, setActiveVariantId] = useState<string>('');
 
-    const quantity = useSecuritySystemStore((state) => state[productKey]?.[product.id]?.[activeVariantId]) || 0;
+    const quantity =
+        useSecuritySystemStore((state) => state[productKey]?.[product.id]?.[activeVariantId]) ||
+        product.minRequiredQuantity ||
+        0;
+
     const productConfigs = useSecuritySystemStore((state) => state[productKey]?.[product.id]) || {};
     const putSecuritySystemItem = useSecuritySystemStore((state) => state.putSecuritySystemItem);
 
@@ -69,7 +73,12 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
                 </div>
 
                 <div className={twJoin('flex items-center justify-between gap-2.5', 'max-[1300px]:w-full')}>
-                    <QuantityStepper value={quantity} min={0} max={5} quantityChangeHandler={handleQuantityChange} />
+                    <QuantityStepper
+                        value={quantity}
+                        min={product.minRequiredQuantity || 0}
+                        max={product.maxAllowedQuantity || Infinity}
+                        quantityChangeHandler={handleQuantityChange}
+                    />
 
                     <PriceCard price={product.price} salePrice={product.salePrice} />
                 </div>
