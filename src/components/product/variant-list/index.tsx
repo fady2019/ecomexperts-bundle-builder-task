@@ -17,7 +17,7 @@ const ProductVariantList: React.FC<TProductVariantListProps> = (props) => {
     }
 
     return (
-        <div className={twJoin('invisible-scrollbar flex gap-2 overflow-x-scroll', 'max-[1300px]:gap-0.5')}>
+        <div className={twJoin('invisible-scrollbar flex gap-2 overflow-x-scroll', 'max-custom-xl:gap-0.5')}>
             {variants.map((variant) => (
                 <ProductVariant
                     key={variant.id}

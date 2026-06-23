@@ -125,6 +125,9 @@ body {
 
     --font-gilroy: 'Gilroy', sans-serif;
     --font-tt-norms-pro: 'TT Norms Pro', sans-serif;
+
+    --breakpoint-custom-xl: 1300px;
+    --breakpoint-custom-sm: 575px;
 }
 
 @layer utilities {

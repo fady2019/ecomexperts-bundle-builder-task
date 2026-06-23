@@ -9,7 +9,7 @@ const SecuritySystemReview = () => {
             <span
                 className={twJoin(
                     'text-text-3 block px-4 text-[12px] leading-[100%] font-medium tracking-[1.6px] uppercase',
-                    'max-[1300px]:hidden',
+                    'max-custom-xl:hidden',
                 )}
             >
                 Review
@@ -18,8 +18,8 @@ const SecuritySystemReview = () => {
             <div
                 className={twJoin(
                     'space-y-2.5 p-5 pb-8',
-                    'max-[1300px]:grid max-[1300px]:grid-cols-[5fr_4.4fr] max-[1300px]:gap-13',
-                    'max-[768px]:block',
+                    'max-custom-xl:grid max-custom-xl:grid-cols-[5fr_4.4fr] max-custom-xl:gap-13',
+                    'max-md:block',
                 )}
             >
                 <div className="space-y-2.5">
@@ -27,8 +27,8 @@ const SecuritySystemReview = () => {
                         <h2
                             className={twJoin(
                                 'text-[22px] leading-[100%] font-semibold tracking-[0.6px]',
-                                'max-[1300px]:text-[28px]',
-                                'max-[768px]:text-[22px]',
+                                'max-custom-xl:text-[28px]',
+                                'max-md:text-[22px]',
                             )}
                         >
                             Your security system
@@ -37,8 +37,8 @@ const SecuritySystemReview = () => {
                         <p
                             className={twJoin(
                                 'text-text-1/75 text-[14px] leading-[130%] font-medium tracking-[0.6px]',
-                                'max-[1300px]:text-[16px]',
-                                'max-[768px]:text-[13px]',
+                                'max-custom-xl:text-[16px]',
+                                'max-md:text-[13px]',
                             )}
                         >
                             Review your personalized protection system designed to keep what matters most safe.

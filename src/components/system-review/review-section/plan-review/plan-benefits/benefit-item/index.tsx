@@ -16,7 +16,7 @@ const PlanBenefitItem: React.FC<TPlanBenefitItemProps> = (props) => {
                 <h5
                     className={twJoin(
                         'text-text-2 grow text-[14px] leading-4 font-medium tracking-[0.5%]',
-                        'max-[575px]:text-[12px]',
+                        'max-custom-sm:text-[12px]',
                     )}
                 >
                     {title}

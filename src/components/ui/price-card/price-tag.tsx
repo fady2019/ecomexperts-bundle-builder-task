@@ -14,7 +14,7 @@ const PriceTag: React.FC<TPriceTagProps> = (props) => {
             className={twMerge(
                 'text-highlighted-1',
                 'text-[16px] leading-[100%] font-medium tracking-[0.6px]',
-                'max-[575px]:text-[16px] max-[575px]:leading-4 max-[575px]:tracking-[0.5%]',
+                'max-custom-sm:text-[16px] max-custom-sm:leading-4 max-custom-sm:tracking-[0.5%]',
                 strikethrough && 'text-highlighted-2 line-through',
                 className,
             )}

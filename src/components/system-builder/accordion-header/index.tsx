@@ -31,7 +31,7 @@ const SystemBuilderAccordionHeader: React.FC<TSystemBuilderAccordionHeaderProps>
                     'border-border-1 border-y-[0.5px]',
                     'flex items-center justify-between',
                     'text-[22px] leading-[100%] font-semibold tracking-normal',
-                    'max-[575px]:text-[18px]',
+                    'max-custom-sm:text-[18px]',
                     isOpened && 'border-b-0 pb-0',
                 )}
             >

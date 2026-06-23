@@ -54,7 +54,7 @@ const PlanCard: React.FC<TPlanCardProps> = (props) => {
                 <p
                     className={twJoin(
                         'text-text-1/75 text-[12px] leading-[130%] font-medium tracking-[0.6px]',
-                        'max-[1300px]:text-[13px]',
+                        'max-custom-xl:text-[13px]',
                     )}
                 >
                     <HighlightedText text={plan.description} />
@@ -77,7 +77,7 @@ const PlanCard: React.FC<TPlanCardProps> = (props) => {
                 className={twJoin(
                     'text-text-1/75 space-y-1.5 text-[14px] leading-[130%] font-medium tracking-[0.6px]',
                     'border-border-3 border-t pt-4',
-                    'max-[1300px]:text-[13px]',
+                    'max-custom-xl:text-[13px]',
                 )}
             >
                 {plan.benefits.map((benefit, idx) => (

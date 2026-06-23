@@ -21,13 +21,17 @@ const SecuritySystemCheckoutSection = () => {
                     className={twJoin(
                         'flex gap-4',
                         'flex-row items-center justify-between',
-                        'max-[1300px]:flex-col max-[1300px]:items-stretch',
-                        'max-[768px]:flex-row max-[768px]:items-center max-[768px]:justify-between',
+                        'max-custom-xl:flex-col max-custom-xl:items-stretch',
+                        'max-md:flex-row max-md:items-center max-md:justify-between',
                     )}
                 >
                     <div className="flex items-center gap-6.25">
                         <div
-                            className={twJoin('aspect-square w-19.5 shrink-0', 'max-[1300px]:w-32.75', 'max-lg:w-19.5')}
+                            className={twJoin(
+                                'aspect-square w-19.5 shrink-0',
+                                'max-custom-xl:w-32.75',
+                                'max-lg:w-19.5',
+                            )}
                         >
                             <img className="block" src={SatisfactionBadgeImg} alt="satisfaction-badge" />
                         </div>
@@ -35,9 +39,9 @@ const SecuritySystemCheckoutSection = () => {
                         <p
                             className={twJoin(
                                 'hidden text-[18px] leading-[110%] font-normal tracking-[0.6px]',
-                                'max-[1300px]:block',
+                                'max-custom-xl:block',
                                 'max-lg:text-[14px]',
-                                'max-[768px]:hidden',
+                                'max-md:hidden',
                             )}
                         >
                             <span className="block pb-4 font-semibold">30-day hassle-free returns</span>
@@ -49,8 +53,8 @@ const SecuritySystemCheckoutSection = () => {
                         className={twJoin(
                             'flex items-center justify-between gap-2',
                             'flex-col items-end',
-                            'max-[1300px]:flex-row max-[1300px]:items-center',
-                            'max-[768px]:flex-col max-[768px]:items-end',
+                            'max-custom-xl:flex-row max-custom-xl:items-center',
+                            'max-md:flex-col max-md:items-end',
                         )}
                     >
                         <Badge className="rounded-[3px] p-1.25">as low as $19.19/mo</Badge>
@@ -69,8 +73,8 @@ const SecuritySystemCheckoutSection = () => {
                     <p
                         className={twJoin(
                             'text-highlighted-3 text-center text-[12px] leading-[100%] font-bold tracking-[-0.06px]',
-                            'max-[1300px]:text-[14px] max-[1300px]:font-semibold',
-                            'max-[575px]:text-[12px] max-[575px]:font-bold',
+                            'max-custom-xl:text-[14px] max-custom-xl:font-semibold',
+                            'max-custom-sm:text-[12px] max-custom-sm:font-bold',
                         )}
                     >
                         Congrats! You’re saving ${totalDiscount} on your security bundle!

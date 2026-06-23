@@ -19,8 +19,8 @@ const SecuritySystemPlanReviewItem: React.FC<TSecuritySystemPlanReviewItemProps>
                 <h5
                     className={twJoin(
                         'grow text-[16px] leading-[100%] font-bold tracking-[-0.2%] text-black',
-                        'max-[1300px]:text-[20px]',
-                        'max-[575px]:text-[14px]',
+                        'max-custom-xl:text-[20px]',
+                        'max-custom-sm:text-[14px]',
                     )}
                 >
                     <HighlightedText text={plan.title} />

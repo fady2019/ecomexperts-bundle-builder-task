@@ -26,8 +26,8 @@ const PriceCard: React.FC<TPriceCardProps> = (props) => {
         <div
             className={twMerge(
                 'flex flex-col items-end gap-0.75',
-                'max-[1300px]:flex-row max-[1300px]:gap-2',
-                'max-[575px]:flex-col max-[575px]:gap-0.75',
+                'max-custom-xl:flex-row max-custom-xl:gap-2',
+                'max-custom-sm:flex-col max-custom-sm:gap-0.75',
                 className,
             )}
             {...restProps}

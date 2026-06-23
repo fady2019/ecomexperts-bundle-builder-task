@@ -37,8 +37,8 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
         <div
             className={twJoin(
                 'bg-bg-1 flex min-h-40 max-w-90.5 items-center gap-5 rounded-lg border-2 p-3',
-                'max-[1300px]:max-w-56.25 max-[1300px]:flex-col max-[1300px]:px-2.75 max-[1300px]:py-5',
-                'max-[575px]:max-w-66',
+                'max-custom-xl:max-w-56.25 max-custom-xl:flex-col max-custom-xl:px-2.75 max-custom-xl:py-5',
+                'max-custom-sm:max-w-66',
                 highlighted ? 'border-border-4/70' : 'border-transparent',
             )}
         >
@@ -46,10 +46,10 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
                 className={twJoin(
                     'flex items-center justify-center',
                     'relative h-full w-25 shrink-0',
-                    'max-[1300px]:max-h-30 max-[1300px]:w-full',
+                    'max-custom-xl:max-h-30 max-custom-xl:w-full',
                 )}
             >
-                <div className={twJoin('flex h-3/5 items-center', 'max-[1300px]:h-[90%]')}>
+                <div className={twJoin('flex h-3/5 items-center', 'max-custom-xl:h-[90%]')}>
                     <img className="h-full" src={product.imgUrl} alt={product.title} />
                 </div>
 
@@ -58,8 +58,8 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
                 </div>
             </div>
 
-            <div className={twJoin('flex grow flex-col gap-2.5 overflow-hidden', 'max-[1300px]:w-full')}>
-                <div className={twJoin('w-55 space-y-2', 'max-[1300px]:w-full')}>
+            <div className={twJoin('flex grow flex-col gap-2.5 overflow-hidden', 'max-custom-xl:w-full')}>
+                <div className={twJoin('w-55 space-y-2', 'max-custom-xl:w-full')}>
                     <ProductCardInfo title={product.title} description={product.description} />
 
                     <VariantList
@@ -69,7 +69,7 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
                     />
                 </div>
 
-                <div className={twJoin('flex items-center justify-between gap-2.5', 'max-[1300px]:w-full')}>
+                <div className={twJoin('flex items-center justify-between gap-2.5', 'max-custom-xl:w-full')}>
                     <QuantityStepper
                         value={quantity}
                         min={minQuantity}

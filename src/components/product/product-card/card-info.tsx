@@ -13,7 +13,7 @@ const ProductCardInfo: React.FC<TProductCardInfo> = (props) => {
             <p
                 className={twJoin(
                     'text-text-1/75 text-[12px] leading-[130%] font-medium tracking-[0.6px]',
-                    'max-[1300px]:text-[13px]',
+                    'max-custom-xl:text-[13px]',
                 )}
             >
                 {description}{' '}
