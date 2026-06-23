@@ -14,12 +14,12 @@ import type { TProductCardProps } from '@/types/product';
 const ProductCard: React.FC<TProductCardProps> = (props) => {
     const { product, productType } = props;
 
-    const [activeVariantId, setActiveVariantId] = useState<string>('');
+    const [activeVariantId, setActiveVariantId] = useState<string>(product.variants[0]?.id || '');
+
+    const minQuantity = product.requiresOnlyOne ? 1 : 0;
 
     const quantity =
-        useSecuritySystemStore((state) => state[productType]?.[product.id]?.[activeVariantId]) ||
-        product.minRequiredQuantity ||
-        0;
+        useSecuritySystemStore((state) => state[productType]?.[product.id]?.[activeVariantId]) || minQuantity || 0;
 
     const productConfigs = useSecuritySystemStore((state) => state[productType]?.[product.id]) || {};
     const putSecuritySystemProduct = useSecuritySystemStore((state) => state.putSecuritySystemProduct);
@@ -75,8 +75,8 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
                 <div className={twJoin('flex items-center justify-between gap-2.5', 'max-[1300px]:w-full')}>
                     <QuantityStepper
                         value={quantity}
-                        min={product.minRequiredQuantity || 0}
-                        max={product.maxAllowedQuantity || Infinity}
+                        min={minQuantity}
+                        max={product.requiresOnlyOne ? 1 : Infinity}
                         quantityChangeHandler={handleQuantityChange}
                     />
 

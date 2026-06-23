@@ -11,15 +11,15 @@ import type { TSecuritySystemProductReviewItemProps } from '@/types/system-revie
 const SecuritySystemProductReviewItem: React.FC<TSecuritySystemProductReviewItemProps> = (props) => {
     const { productType, product, variantIdx, quantity } = props;
 
-    const putSecuritySystemItem = useSecuritySystemStore((state) => state.putSecuritySystemProduct);
-
     const { name: variantName, id: variantId } = product.variants[variantIdx] || {};
+
+    const putSecuritySystemProduct = useSecuritySystemStore((state) => state.putSecuritySystemProduct);
 
     const handleQuantityChange = useCallback(
         (quantity: number) => {
-            putSecuritySystemItem(productType, product.id, variantId, quantity);
+            putSecuritySystemProduct(productType, product.id, variantId, quantity);
         },
-        [productType, product, variantIdx, putSecuritySystemItem],
+        [productType, product, variantIdx, putSecuritySystemProduct],
     );
 
     return (
@@ -42,8 +42,8 @@ const SecuritySystemProductReviewItem: React.FC<TSecuritySystemProductReviewItem
                     <QuantityStepper
                         stepperBtnClassName="bg-bg-1 disabled:border disabled:bg-bg-6 disabled:text-text-4 disabled:border-border-2"
                         value={quantity}
-                        min={product.minRequiredQuantity || 0}
-                        max={product.maxAllowedQuantity || Infinity}
+                        min={product.requiresOnlyOne ? 1 : 0}
+                        max={product.requiresOnlyOne ? 1 : Infinity}
                         quantityChangeHandler={handleQuantityChange}
                     />
                 </div>

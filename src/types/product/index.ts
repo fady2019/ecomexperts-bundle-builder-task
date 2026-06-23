@@ -14,8 +14,7 @@ export type TProduct = {
     variants: TProductVariant[];
     price: number;
     salePrice: number;
-    minRequiredQuantity?: number;
-    maxAllowedQuantity?: number;
+    requiresOnlyOne?: boolean;
 };
 
 export type TProducts = Record<TSystemProductType, TProduct[]>;
