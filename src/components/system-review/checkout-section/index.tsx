@@ -10,6 +10,9 @@ import SatisfactionBadgeImg from '@/assets/images/satisfaction-badge.png';
 
 const SecuritySystemCheckoutSection = () => {
     const saveSecuritySystem = useSecuritySystemStore((state) => state.saveSecuritySystem);
+    const totalPrice = useSecuritySystemStore((state) => state.totalPrice);
+    const totalDiscount = useSecuritySystemStore((state) => state.totalDiscount);
+    const totalPriceWithDiscount = Number((totalPrice - totalDiscount).toFixed(2));
 
     return (
         <div className="space-y-2">
@@ -53,8 +56,8 @@ const SecuritySystemCheckoutSection = () => {
                         <Badge className="rounded-[3px] p-1.25">as low as $19.19/mo</Badge>
 
                         <PriceCard
-                            price={238.81}
-                            salePrice={187.89}
+                            price={totalPrice}
+                            salePrice={totalPriceWithDiscount}
                             className="flex-row! gap-2!"
                             strikethroughPriceClassName="text-[18px]! leading-5! font-medium! tracking-[0.25%]!"
                             activePriceClassName="text-[24px]! leading-8! font-bold! tracking-[-0.13%]!"
@@ -70,7 +73,7 @@ const SecuritySystemCheckoutSection = () => {
                             'max-[575px]:text-[12px] max-[575px]:font-bold',
                         )}
                     >
-                        Congrats! You’re saving $50.92 on your security bundle!
+                        Congrats! You’re saving ${totalDiscount} on your security bundle!
                     </p>
 
                     <Button className="font-tt-norms-pro bg-bg-2 w-full rounded-sm px-4 py-3.25 text-[14px] leading-[100%] font-bold text-white">
