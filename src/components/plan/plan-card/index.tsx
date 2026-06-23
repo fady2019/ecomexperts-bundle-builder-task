@@ -79,8 +79,8 @@ const PlanCard: React.FC<TPlanCardProps> = (props) => {
                     'max-[1300px]:text-[13px]',
                 )}
             >
-                {plan.benefits.map((benefit) => (
-                    <li className="flex gap-1">
+                {plan.benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex gap-1">
                         <CheckMark className="text-highlighted-1" />
 
                         <span>
