@@ -80,7 +80,12 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
                         quantityChangeHandler={handleQuantityChange}
                     />
 
-                    <PriceCard price={product.price} salePrice={product.salePrice} />
+                    <PriceCard
+                        price={product.price}
+                        salePrice={product.salePrice}
+                        commonClassName="text-text-4 font-normal"
+                        strikethroughPriceClassName="text-highlighted-4!"
+                    />
                 </div>
             </div>
         </div>

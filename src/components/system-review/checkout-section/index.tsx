@@ -56,8 +56,8 @@ const SecuritySystemCheckoutSection = () => {
                             price={238.81}
                             salePrice={187.89}
                             className="flex-row! gap-2!"
-                            priceClassName="text-highlighted-2 text-[18px]! leading-5! font-medium! tracking-[0.25%]!"
-                            salePriceClassName="text-highlighted-1 text-[24px]! leading-8! font-bold! tracking-[-0.13%]!"
+                            strikethroughPriceClassName="text-[18px]! leading-5! font-medium! tracking-[0.25%]!"
+                            activePriceClassName="text-[24px]! leading-8! font-bold! tracking-[-0.13%]!"
                         />
                     </div>
                 </div>

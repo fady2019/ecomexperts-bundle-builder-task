@@ -54,8 +54,6 @@ const SecuritySystemProductReviewItem: React.FC<TSecuritySystemProductReviewItem
                     price={product.price}
                     salePrice={product.salePrice}
                     commonClassName="text-[14px] leading-4 font-medium tracking-[0.5%]"
-                    priceClassName="text-highlighted-2"
-                    salePriceClassName="text-highlighted-1"
                 />
             </div>
         </div>

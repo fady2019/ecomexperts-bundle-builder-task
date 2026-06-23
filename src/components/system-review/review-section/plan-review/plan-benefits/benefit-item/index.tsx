@@ -28,8 +28,6 @@ const PlanBenefitItem: React.FC<TPlanBenefitItemProps> = (props) => {
                     price={price}
                     salePrice={salePrice}
                     commonClassName="text-[14px] leading-4 font-medium tracking-[0.5%]"
-                    priceClassName="text-highlighted-2"
-                    salePriceClassName="text-highlighted-1"
                 />
             </div>
         </div>

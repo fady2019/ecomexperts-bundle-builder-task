@@ -6,8 +6,17 @@ import PriceTag from './price-tag';
 import type { TPriceCardProps } from '@/types/price-card';
 
 const PriceCard: React.FC<TPriceCardProps> = (props) => {
-    const { price, salePrice, commonClassName, priceClassName, salePriceClassName, className, ...restProps } = props;
+    const {
+        price,
+        salePrice,
+        commonClassName,
+        activePriceClassName,
+        strikethroughPriceClassName,
+        className,
+        ...restProps
+    } = props;
 
+    const strikethrough = salePrice < price;
     const priceLabel = `${price === 0 ? 'FREE' : '$' + price}`;
     const salePriceLabel = salePrice !== price ? (salePrice === 0 ? 'FREE' : `$${salePrice}`) : undefined;
 
@@ -22,12 +31,12 @@ const PriceCard: React.FC<TPriceCardProps> = (props) => {
             {...restProps}
         >
             <PriceTag
-                className={twMerge(commonClassName, priceClassName)}
+                className={twMerge(commonClassName, strikethrough ? strikethroughPriceClassName : activePriceClassName)}
                 priceLabel={priceLabel}
-                linedThrough={salePrice !== price}
+                strikethrough={strikethrough}
             />
 
-            <PriceTag className={twMerge(commonClassName, salePriceClassName)} priceLabel={salePriceLabel} />
+            <PriceTag className={twMerge(commonClassName, activePriceClassName)} priceLabel={salePriceLabel} />
         </div>
     );
 };
