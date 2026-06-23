@@ -1,14 +1,18 @@
 import { create } from 'zustand';
 
-import type { TSecuritySystemStore } from '@/types/store/shopper-system';
+import useUIStore from '@/store/ui';
 
-const useSecuritySystemStore = create<TSecuritySystemStore>((set) => ({
+import type { TSecuritySystemState, TSecuritySystemStore } from '@/types/store/shopper-system';
+
+const useSecuritySystemStore = create<TSecuritySystemStore>((set, get) => ({
     cameras: {},
     plans: {},
     sensors: {},
     accessories: {},
 
     putSecuritySystemItem: (productKey, productId, variantId, quantity) => {
+        variantId ||= '';
+
         set((state) => {
             const productGroup = state[productKey] || {};
             const product = productGroup[productId] || {};
@@ -46,6 +50,33 @@ const useSecuritySystemStore = create<TSecuritySystemStore>((set) => ({
                 },
             };
         });
+    },
+    saveSecuritySystem: () => {
+        const setNotification = useUIStore.getState().setNotification;
+
+        try {
+            localStorage.setItem('security-system-store', JSON.stringify(get()));
+            setNotification({ id: Date.now(), type: 'success', content: 'Your security system saved successfully!' });
+        } catch (error) {
+            setNotification({ id: Date.now(), type: 'error', content: (error as Error).message });
+        }
+    },
+    loadSecuritySystem: () => {
+        const setNotification = useUIStore.getState().setNotification;
+
+        try {
+            const stateAsString = localStorage.getItem('security-system-store');
+
+            if (!stateAsString) {
+                return;
+            }
+
+            set({ ...(JSON.parse(stateAsString) as TSecuritySystemState) });
+
+            setNotification({ id: Date.now(), type: 'success', content: 'Your security system loaded successfully!' });
+        } catch (error) {
+            setNotification({ id: Date.now(), type: 'error', content: (error as Error).message });
+        }
     },
 }));
 

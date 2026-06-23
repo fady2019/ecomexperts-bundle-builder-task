@@ -13,7 +13,7 @@ const ProductAccordionHeader: React.FC<TProductAccordionHeaderProps> = (props) =
     const selectedCount = Object.keys(configs).length || 0;
 
     return (
-        <div className={twJoin(isOpened && 'pt-1.25')}>
+        <div className={twJoin(isOpened && 'pt-2.5')}>
             <span
                 className={twJoin(
                     'text-text-3',

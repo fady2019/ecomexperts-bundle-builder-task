@@ -1,0 +1,61 @@
+import { twJoin } from 'tailwind-merge';
+
+import SecuritySystemReviewSection from './review-section';
+import SecuritySystemCheckoutSection from './checkout-section';
+
+const SecuritySystemReview = () => {
+    return (
+        <div className="bg-bg-3 space-y-1.25 rounded-[10px] pt-4">
+            <span
+                className={twJoin(
+                    'text-text-3 block px-4 text-[12px] leading-[100%] font-medium tracking-[1.6px] uppercase',
+                    'max-[1300px]:hidden',
+                )}
+            >
+                Review
+            </span>
+
+            <div
+                className={twJoin(
+                    'space-y-2.5 p-5 pb-8',
+                    'max-[1300px]:grid max-[1300px]:grid-cols-[5fr_4.4fr] max-[1300px]:gap-13',
+                    'max-[768px]:block',
+                )}
+            >
+                <div className="space-y-2.5">
+                    <div className="space-y-1.25">
+                        <h2
+                            className={twJoin(
+                                'text-[22px] leading-[100%] font-semibold tracking-[0.6px]',
+                                'max-[1300px]:text-[28px]',
+                                'max-[768px]:text-[22px]',
+                            )}
+                        >
+                            Your security system
+                        </h2>
+
+                        <p
+                            className={twJoin(
+                                'text-text-1/75 text-[14px] leading-[130%] font-medium tracking-[0.6px]',
+                                'max-[1300px]:text-[16px]',
+                                'max-[768px]:text-[13px]',
+                            )}
+                        >
+                            Review your personalized protection system designed to keep what matters most safe.
+                        </p>
+                    </div>
+
+                    <div className="space-y-2.5">
+                        <SecuritySystemReviewSection productKey="cameras" label="cameras" />
+                        <SecuritySystemReviewSection productKey="sensors" label="sensors" />
+                        <SecuritySystemReviewSection productKey="accessories" label="accessories" />
+                    </div>
+                </div>
+
+                <SecuritySystemCheckoutSection />
+            </div>
+        </div>
+    );
+};
+
+export default SecuritySystemReview;

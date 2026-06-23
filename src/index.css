@@ -10,6 +10,7 @@
     --color-bg-3: #edf4ff;
     --color-bg-4: #f0f4f7;
     --color-bg-5: #1df0bb;
+    --color-bg-6: #f1f1f2;
 
     --color-text-1: #1f1f1f;
     --color-text-2: #0b0d10;
@@ -28,6 +29,8 @@
     --color-icon-3: #4e2fd2;
     --color-icon-4: #525963;
     --color-icon-5: #ced6de;
+    --color-icon-6: #0aa288;
+    --color-icon-7: #0046c7;
 
     --color-border-1: #1f1f1f;
     --color-border-2: #ced6de;
@@ -52,6 +55,13 @@ body {
 
 @font-face {
     font-family: 'Gilroy';
+    src: url('/src/assets/fonts/gilroy-regular-italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gilroy';
     src: url('/src/assets/fonts/gilroy-medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
@@ -71,12 +81,20 @@ body {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'TT Norms Pro';
+    src: url('/src/assets/fonts/tt-norms-pro-bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 @theme {
     --color-bg-1: var(--color-bg-1);
     --color-bg-2: var(--color-bg-2);
     --color-bg-3: var(--color-bg-3);
     --color-bg-4: var(--color-bg-4);
     --color-bg-5: var(--color-bg-5);
+    --color-bg-6: var(--color-bg-6);
 
     --color-text-1: var(--color-text-1);
     --color-text-2: var(--color-text-2);
@@ -95,6 +113,8 @@ body {
     --color-icon-3: var(--color-icon-3);
     --color-icon-4: var(--color-icon-4);
     --color-icon-5: var(--color-icon-5);
+    --color-icon-6: var(--color-icon-6);
+    --color-icon-7: var(--color-icon-7);
 
     --color-border-1: var(--color-border-1);
     --color-border-2: var(--color-border-2);
@@ -104,6 +124,7 @@ body {
     --color-border-6: var(--color-border-6);
 
     --font-gilroy: 'Gilroy', sans-serif;
+    --font-tt-norms-pro: 'TT Norms Pro', sans-serif;
 }
 
 @layer utilities {

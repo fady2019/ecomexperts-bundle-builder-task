@@ -5,6 +5,8 @@ export type TSecuritySystemState = Record<TProductKey, Record<string, Record<str
 
 export type TSecuritySystemActions = {
     putSecuritySystemItem: (productKey: TProductKey, productId: string, variantId: string, quantity: number) => void;
+    saveSecuritySystem: () => void;
+    loadSecuritySystem: () => void;
 };
 
 export type TSecuritySystemStore = TSecuritySystemState & TSecuritySystemActions;
