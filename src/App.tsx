@@ -42,7 +42,16 @@ function App() {
             <Spinner loading={isLoading} darkTheme={isDarkTheme} />
             <Notification notification={notification} darkTheme={isDarkTheme} />
 
-            <main className={twJoin('mx-auto max-w-325 p-8', 'max-[1300px]:max-w-full', 'max-[575px]:p-4')}>
+            <main className={twJoin('mx-auto max-w-325 p-8', 'max-[1300px]:max-w-full', 'max-[575px]:p-2')}>
+                <h1
+                    className={twJoin(
+                        'hidden px-2.5 py-5 text-center text-[32px] leading-[110%] font-bold tracking-[-0.06px]',
+                        'max-md:block',
+                    )}
+                >
+                    Let’s get started!
+                </h1>
+
                 <div className={twJoin('grid grid-cols-[auto_400px] items-start gap-10', 'max-[1300px]:grid-cols-1')}>
                     <SecuritySystemBuilder />
                     <SecuritySystemReview />
