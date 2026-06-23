@@ -31,13 +31,6 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
         [productType, product, activeVariantId, putSecuritySystemProduct],
     );
 
-    const handleVariantPickingChange = useCallback(
-        (id: string) => {
-            setActiveVariantId(id);
-        },
-        [setActiveVariantId],
-    );
-
     const highlighted = Object.keys(productConfigs).length > 0;
 
     return (
@@ -69,7 +62,11 @@ const ProductCard: React.FC<TProductCardProps> = (props) => {
                 <div className={twJoin('w-55 space-y-2', 'max-[1300px]:w-full')}>
                     <ProductCardInfo title={product.title} description={product.description} />
 
-                    <VariantList variants={product.variants} variantPickingChangeHandler={handleVariantPickingChange} />
+                    <VariantList
+                        variants={product.variants}
+                        activeVariantId={activeVariantId}
+                        variantPickingChangeHandler={setActiveVariantId}
+                    />
                 </div>
 
                 <div className={twJoin('flex items-center justify-between gap-2.5', 'max-[1300px]:w-full')}>

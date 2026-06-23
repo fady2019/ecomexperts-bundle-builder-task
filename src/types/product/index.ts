@@ -30,13 +30,14 @@ export type TProductListProps = {
 
 export type TProductVariantListProps = {
     variants: TProductVariant[];
+    activeVariantId: string;
     variantPickingChangeHandler?: (id: string) => void;
 };
 
 export type TProductVariantProps = {
     variant: TProductVariant;
     isActive: boolean;
-    toggleVariantHandler: (id: string) => void;
+    toggleVariantHandler?: (id: string) => void;
 };
 
 export type TProductCardInfo = {

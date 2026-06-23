@@ -1,14 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { twJoin } from 'tailwind-merge';
 
 import type { TProductVariantProps } from '@/types/product';
 
 const ProductVariant: React.FC<TProductVariantProps> = (props) => {
     const { variant, isActive, toggleVariantHandler } = props;
-
-    const handleVariantToggling = useCallback(() => {
-        toggleVariantHandler(variant.id);
-    }, [variant, toggleVariantHandler]);
 
     return (
         <div
@@ -22,7 +18,7 @@ const ProductVariant: React.FC<TProductVariantProps> = (props) => {
             )}
             tabIndex={-1}
             role="button"
-            onClick={handleVariantToggling}
+            onClick={toggleVariantHandler?.bind(null, variant.id)}
         >
             <div className="h-full">
                 <img className="h-full" src={variant.imgUrl} alt={variant.name} />
