@@ -8,7 +8,7 @@ import type { TPriceCardProps } from '@/types/price-card';
 const PriceCard: React.FC<TPriceCardProps> = (props) => {
     const { price, salePrice, commonClassName, priceClassName, salePriceClassName, className, ...restProps } = props;
 
-    const priceLabel = `$${price}`;
+    const priceLabel = `${price === 0 ? 'FREE' : '$' + price}`;
     const salePriceLabel = salePrice !== price ? (salePrice === 0 ? 'FREE' : `$${salePrice}`) : undefined;
 
     return (

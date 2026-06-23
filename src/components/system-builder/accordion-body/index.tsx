@@ -1,16 +1,19 @@
 import { twJoin } from 'tailwind-merge';
 
 import ProductList from '@/components/product';
+import PlanList from '@/components/plan';
 import Button from '@/components/ui/button';
 
-import type { TProductAccordionBodyProps } from '@/types/products-accordion';
+import { isSystemProductType } from '@/utils/system-builder';
 
-const ProductAccordionBody: React.FC<TProductAccordionBodyProps> = (props) => {
-    const { productKey, products, nextStepBtnLabel, openNext } = props;
+import type { TSystemBuilderAccordionBodyProps } from '@/types/system-builder';
+
+const SystemBuilderAccordionBody: React.FC<TSystemBuilderAccordionBodyProps> = (props) => {
+    const { systemItemType, nextStepBtnLabel, openNext } = props;
 
     return (
         <div className="flex flex-col items-center gap-4 p-4">
-            <ProductList productKey={productKey} products={products} />
+            {isSystemProductType(systemItemType) ? <ProductList productType={systemItemType} /> : <PlanList />}
 
             {nextStepBtnLabel && (
                 <Button
@@ -24,4 +27,4 @@ const ProductAccordionBody: React.FC<TProductAccordionBodyProps> = (props) => {
     );
 };
 
-export default ProductAccordionBody;
+export default SystemBuilderAccordionBody;

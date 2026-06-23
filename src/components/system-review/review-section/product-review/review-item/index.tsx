@@ -6,20 +6,20 @@ import PriceCard from '@/components/ui/price-card';
 
 import useSecuritySystemStore from '@/store/security-system';
 
-import type { TSecuritySystemReviewItemProps } from '@/types/system-review';
+import type { TSecuritySystemProductReviewItemProps } from '@/types/system-review';
 
-const SecuritySystemReviewItem: React.FC<TSecuritySystemReviewItemProps> = (props) => {
-    const { productKey, product, variantIdx, quantity } = props;
+const SecuritySystemProductReviewItem: React.FC<TSecuritySystemProductReviewItemProps> = (props) => {
+    const { productType, product, variantIdx, quantity } = props;
 
-    const putSecuritySystemItem = useSecuritySystemStore((state) => state.putSecuritySystemItem);
+    const putSecuritySystemItem = useSecuritySystemStore((state) => state.putSecuritySystemProduct);
 
     const { name: variantName, id: variantId } = product.variants[variantIdx] || {};
 
     const handleQuantityChange = useCallback(
         (quantity: number) => {
-            putSecuritySystemItem(productKey, product.id, variantId, quantity);
+            putSecuritySystemItem(productType, product.id, variantId, quantity);
         },
-        [productKey, product, variantIdx, putSecuritySystemItem],
+        [productType, product, variantIdx, putSecuritySystemItem],
     );
 
     return (
@@ -62,4 +62,4 @@ const SecuritySystemReviewItem: React.FC<TSecuritySystemReviewItemProps> = (prop
     );
 };
 
-export default SecuritySystemReviewItem;
+export default SecuritySystemProductReviewItem;

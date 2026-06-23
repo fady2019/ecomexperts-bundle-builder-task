@@ -46,9 +46,10 @@ const SecuritySystemReview = () => {
                     </div>
 
                     <div className="space-y-2.5">
-                        <SecuritySystemReviewSection productKey="cameras" label="cameras" />
-                        <SecuritySystemReviewSection productKey="sensors" label="sensors" />
-                        <SecuritySystemReviewSection productKey="accessories" label="accessories" />
+                        <SecuritySystemReviewSection itemType="cameras" label="cameras" />
+                        <SecuritySystemReviewSection itemType="sensors" label="sensors" />
+                        <SecuritySystemReviewSection itemType="accessories" label="accessories" />
+                        <SecuritySystemReviewSection itemType="plans" label="plan" />
                     </div>
                 </div>
 

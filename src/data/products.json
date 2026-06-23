@@ -71,7 +71,6 @@
             "salePrice": 89.98
         }
     ],
-    "plans": [],
     "sensors": [
         {
             "id": "wyze-sense-motion-sensor",

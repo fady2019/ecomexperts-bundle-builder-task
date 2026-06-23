@@ -2,24 +2,24 @@ import { create } from 'zustand';
 
 import useUIStore from '@/store/ui';
 
-import type { TSecuritySystemState, TSecuritySystemStore } from '@/types/store/shopper-system';
+import type { TSecuritySystemState, TSecuritySystemStore } from '@/types/store/security-system';
 
 const useSecuritySystemStore = create<TSecuritySystemStore>((set, get) => ({
     cameras: {},
-    plans: {},
     sensors: {},
     accessories: {},
+    plans: [],
 
-    putSecuritySystemItem: (productKey, productId, variantId, quantity) => {
+    putSecuritySystemProduct: (productType, productId, variantId, quantity) => {
         variantId ||= '';
 
         set((state) => {
-            const productGroup = state[productKey] || {};
+            const productGroup = state[productType] || {};
             const product = productGroup[productId] || {};
 
             if (quantity > 0) {
                 return {
-                    [productKey]: {
+                    [productType]: {
                         ...productGroup,
                         [productId]: {
                             ...product,
@@ -35,14 +35,14 @@ const useSecuritySystemStore = create<TSecuritySystemStore>((set, get) => ({
                 delete productGroup[productId];
 
                 return {
-                    [productKey]: {
+                    [productType]: {
                         ...productGroup,
                     },
                 };
             }
 
             return {
-                [productKey]: {
+                [productType]: {
                     ...productGroup,
                     [productId]: {
                         ...product,
@@ -50,6 +50,9 @@ const useSecuritySystemStore = create<TSecuritySystemStore>((set, get) => ({
                 },
             };
         });
+    },
+    putSecuritySystemPlan: (planId) => {
+        set({ plans: [planId] });
     },
     saveSecuritySystem: () => {
         const setNotification = useUIStore.getState().setNotification;

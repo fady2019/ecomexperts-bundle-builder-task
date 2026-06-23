@@ -12,23 +12,23 @@ import useSecuritySystemStore from '@/store/security-system';
 import type { TProductCardProps } from '@/types/product';
 
 const ProductCard: React.FC<TProductCardProps> = (props) => {
-    const { product, productKey } = props;
+    const { product, productType } = props;
 
     const [activeVariantId, setActiveVariantId] = useState<string>('');
 
     const quantity =
-        useSecuritySystemStore((state) => state[productKey]?.[product.id]?.[activeVariantId]) ||
+        useSecuritySystemStore((state) => state[productType]?.[product.id]?.[activeVariantId]) ||
         product.minRequiredQuantity ||
         0;
 
-    const productConfigs = useSecuritySystemStore((state) => state[productKey]?.[product.id]) || {};
-    const putSecuritySystemItem = useSecuritySystemStore((state) => state.putSecuritySystemItem);
+    const productConfigs = useSecuritySystemStore((state) => state[productType]?.[product.id]) || {};
+    const putSecuritySystemProduct = useSecuritySystemStore((state) => state.putSecuritySystemProduct);
 
     const handleQuantityChange = useCallback(
         (quantity: number) => {
-            putSecuritySystemItem(productKey, product.id, activeVariantId, quantity);
+            putSecuritySystemProduct(productType, product.id, activeVariantId, quantity);
         },
-        [productKey, product, activeVariantId, putSecuritySystemItem],
+        [productType, product, activeVariantId, putSecuritySystemProduct],
     );
 
     const handleVariantPickingChange = useCallback(

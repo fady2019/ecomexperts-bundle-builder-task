@@ -1,3 +1,5 @@
+import type { TSystemProductType } from '@/types/system-builder';
+
 export type TProductVariant = {
     id: string;
     name: string;
@@ -16,18 +18,15 @@ export type TProduct = {
     maxAllowedQuantity?: number;
 };
 
-export type TProductKey = 'cameras' | 'plans' | 'sensors' | 'accessories';
-
-export type TProducts = Record<TProductKey, TProduct[]>;
+export type TProducts = Record<TSystemProductType, TProduct[]>;
 
 export type TProductCardProps = {
+    productType: TSystemProductType;
     product: TProduct;
-    productKey: TProductKey;
 };
 
 export type TProductListProps = {
-    productKey: TProductKey;
-    products: TProduct[];
+    productType: TSystemProductType;
 };
 
 export type TProductVariantListProps = {

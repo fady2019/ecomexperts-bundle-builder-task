@@ -1,15 +1,15 @@
 import React from 'react';
 import { twJoin } from 'tailwind-merge';
 
-import type { TProductAccordionHeaderProps } from '@/types/products-accordion';
+import type { TSystemBuilderAccordionHeaderProps } from '@/types/system-builder';
 
 import ArrowDown from '@/assets/icons/arrow-down.svg?react';
 import useSecuritySystemStore from '@/store/security-system';
 
-const ProductAccordionHeader: React.FC<TProductAccordionHeaderProps> = (props) => {
-    const { productKey, title, TitleIcon, subtitle, isOpened } = props;
+const SystemBuilderAccordionHeader: React.FC<TSystemBuilderAccordionHeaderProps> = (props) => {
+    const { systemItemType, title, TitleIcon, subtitle, isOpened } = props;
 
-    const configs = useSecuritySystemStore((state) => state[productKey]);
+    const configs = useSecuritySystemStore((state) => state[systemItemType]);
     const selectedCount = Object.keys(configs).length || 0;
 
     return (
@@ -41,7 +41,7 @@ const ProductAccordionHeader: React.FC<TProductAccordionHeaderProps> = (props) =
                 </div>
 
                 <div className="flex items-center gap-1">
-                    {selectedCount > 0 && (
+                    {isOpened && selectedCount > 0 && (
                         <span className="text-highlighted-1 text-[14px] leading-4 font-medium tracking-normal">
                             {selectedCount} selected
                         </span>
@@ -54,4 +54,4 @@ const ProductAccordionHeader: React.FC<TProductAccordionHeaderProps> = (props) =
     );
 };
 
-export default ProductAccordionHeader;
+export default SystemBuilderAccordionHeader;
