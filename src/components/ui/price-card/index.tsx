@@ -9,6 +9,7 @@ const PriceCard: React.FC<TPriceCardProps> = (props) => {
     const {
         price,
         salePrice,
+        suffix,
         commonClassName,
         activePriceClassName,
         strikethroughPriceClassName,
@@ -17,8 +18,9 @@ const PriceCard: React.FC<TPriceCardProps> = (props) => {
     } = props;
 
     const strikethrough = salePrice < price;
-    const priceLabel = `${price === 0 ? 'FREE' : '$' + price}`;
-    const salePriceLabel = salePrice !== price ? (salePrice === 0 ? 'FREE' : `$${salePrice}`) : undefined;
+    const priceLabel = `${price === 0 ? 'FREE' : '$' + price + (suffix || '')}`;
+    const salePriceLabel =
+        salePrice !== price ? (salePrice === 0 ? 'FREE' : `$${salePrice}${suffix || ''}`) : undefined;
 
     return (
         <div

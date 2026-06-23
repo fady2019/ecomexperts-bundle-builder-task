@@ -31,6 +31,7 @@ const SecuritySystemPlanReviewItem: React.FC<TSecuritySystemPlanReviewItemProps>
                 <PriceCard
                     price={plan.pricePerMonth}
                     salePrice={plan.salePricePerMonth}
+                    suffix="/mo"
                     commonClassName="text-[14px] leading-4 font-medium tracking-[0.5%]"
                 />
             </div>

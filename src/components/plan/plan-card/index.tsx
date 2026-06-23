@@ -37,6 +37,7 @@ const PlanCard: React.FC<TPlanCardProps> = (props) => {
                     className="flex-col! items-start! gap-1.5!"
                     price={plan.pricePerMonth}
                     salePrice={plan.salePricePerMonth}
+                    suffix="/mo"
                     strikethroughPriceClassName="text-[18px]! font-medium!"
                     activePriceClassName="text-[24px]! font-bold!"
                 />
