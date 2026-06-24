@@ -22,7 +22,7 @@ const useReactQuery = <TResponseData>(
 
     useEffect(() => {
         setIsLoading(isPending);
-    }, [isPending]);
+    }, [isPending, setIsLoading]);
 
     useEffect(() => {
         if (!isError) {
@@ -36,7 +36,7 @@ const useReactQuery = <TResponseData>(
             content: errorMessage,
             type: 'error',
         });
-    }, [isError, error]);
+    }, [isError, error, setNotification]);
 
     return { data };
 };

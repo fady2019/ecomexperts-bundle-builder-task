@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 import StepperBtn from './stepper-btn';
 
@@ -10,40 +10,25 @@ import Add from '@/assets/icons/add.svg?react';
 const QuantityStepper: React.FC<TQuantityStepperProps> = (props) => {
     const { value, min, max, stepperBtnClassName, quantityChangeHandler } = props;
 
-    const [quantity, setQuantity] = useState(value);
-    const quantityChangeHandlerRef = useRef(quantityChangeHandler);
-
-    useEffect(() => {
-        setQuantity(value);
-    }, [value]);
-
-    useEffect(() => {
-        quantityChangeHandlerRef.current = quantityChangeHandler;
-    }, [quantityChangeHandler]);
-
-    useEffect(() => {
-        quantityChangeHandlerRef.current?.(quantity);
-    }, [quantity]);
-
     const handleQuantityChange = (changeBy: number) => {
-        setQuantity((curr) => Math.min(Math.max(curr + changeBy, min), max));
+        quantityChangeHandler?.(Math.min(Math.max(value + changeBy, min), max));
     };
 
     return (
         <div className="flex items-center justify-center gap-2.5 p-1">
             <StepperBtn
                 className={stepperBtnClassName}
-                disabled={quantity === min}
+                disabled={value === min}
                 onClick={handleQuantityChange.bind(null, -1)}
             >
                 <Minus />
             </StepperBtn>
 
-            <span className="text-[16px] leading-5 font-medium tracking-normal">{quantity}</span>
+            <span className="text-[16px] leading-5 font-medium tracking-normal">{value}</span>
 
             <StepperBtn
                 className={stepperBtnClassName}
-                disabled={quantity === max}
+                disabled={value === max}
                 onClick={handleQuantityChange.bind(null, 1)}
             >
                 <Add />

@@ -19,7 +19,7 @@ const SecuritySystemProductReviewItem: React.FC<TSecuritySystemProductReviewItem
         (quantity: number) => {
             putSecuritySystemProduct(productType, product.id, variantId, quantity);
         },
-        [productType, product, variantIdx, putSecuritySystemProduct],
+        [productType, product, variantId, putSecuritySystemProduct],
     );
 
     return (
