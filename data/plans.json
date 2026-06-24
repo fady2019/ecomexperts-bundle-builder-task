@@ -1,0 +1,34 @@
+{
+    "plans": [
+        {
+            "id": "basic",
+            "title": "Basic %%(FREE)%%",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "benefits": ["Live view", "Motion notifications", "Local SD card recording"],
+            "pricePerMonth": 0,
+            "salePricePerMonth": 0,
+            "provideFreeFastShipping": false
+        },
+        {
+            "id": "cam-unlimited",
+            "title": "Cam %%Unlimited%%",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "benefits": ["Unlimited recordings", "Cloud storage", "AI alerts", "%%FREE%% Fast Shipping"],
+            "pricePerMonth": 12.99,
+            "salePricePerMonth": 9.99,
+            "provideFreeFastShipping": true
+        },
+        {
+            "id": "cam-unlimited-plus",
+            "title": "Cam %%Unlimited%% Plus",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "benefits": ["Everything in Cam %%Unlimited%%", "Priority support", "Device replacement protection"],
+            "pricePerMonth": 19.99,
+            "salePricePerMonth": 14.99,
+            "provideFreeFastShipping": true
+        }
+    ],
+    "defaultPlanId": "cam-unlimited",
+    "mostPopularPlanId": "cam-unlimited",
+    "bestValuePlanId": "cam-unlimited-plus"
+}
