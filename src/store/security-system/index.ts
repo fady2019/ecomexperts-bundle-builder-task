@@ -85,8 +85,6 @@ const useSecuritySystemStore = create<TSecuritySystemStore>((set, get) => ({
 
             set({ ...(JSON.parse(stateAsString) as TSecuritySystemState) });
 
-            get().updateTotalPriceAndDiscount();
-
             setNotification({ id: Date.now(), type: 'success', content: 'Your security system loaded successfully!' });
         } catch (error) {
             setNotification({ id: Date.now(), type: 'error', content: (error as Error).message });

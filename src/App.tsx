@@ -21,14 +21,16 @@ function App() {
     const setProducts = useProductsStore((state) => state.setProducts);
     const setPlans = usePlansStore((state) => state.setPlans);
     const loadSecuritySystem = useSecuritySystemStore((state) => state.loadSecuritySystem);
+    const updateTotalPriceAndDiscount = useSecuritySystemStore((state) => state.updateTotalPriceAndDiscount);
+
+    const { data: plans } = useReactQuery<TPlans>(
+        { queryKey: ['plans'] },
+        { url: `${import.meta.env.BASE_URL}/data/plans.json` },
+    );
 
     const { data: products } = useReactQuery<TProducts>(
         { queryKey: ['products'] },
         { url: `${import.meta.env.BASE_URL}data/products.json` },
-    );
-    const { data: plans } = useReactQuery<TPlans>(
-        { queryKey: ['plans'] },
-        { url: `${import.meta.env.BASE_URL}/data/plans.json` },
     );
 
     useEffect(() => {
@@ -37,11 +39,13 @@ function App() {
 
     useEffect(() => {
         setProducts(products);
-    }, [products, setProducts]);
+        updateTotalPriceAndDiscount();
+    }, [products, setProducts, updateTotalPriceAndDiscount]);
 
     useEffect(() => {
         setPlans(plans);
-    }, [plans, setPlans]);
+        updateTotalPriceAndDiscount();
+    }, [plans, setPlans, updateTotalPriceAndDiscount]);
 
     return (
         <>
