@@ -4,12 +4,6 @@
 npm install
 ```
 
-## Setup Husky (Optional)
-
-```bash
-npm run prepare
-```
-
 ## Run Application
 
 ```bash
