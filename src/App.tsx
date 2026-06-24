@@ -22,8 +22,14 @@ function App() {
     const setPlans = usePlansStore((state) => state.setPlans);
     const loadSecuritySystem = useSecuritySystemStore((state) => state.loadSecuritySystem);
 
-    const { data: products } = useReactQuery<TProducts>({ queryKey: ['products'] }, { url: 'src/data/products.json' });
-    const { data: plans } = useReactQuery<TPlans>({ queryKey: ['plans'] }, { url: 'src/data/plans.json' });
+    const { data: products } = useReactQuery<TProducts>(
+        { queryKey: ['products'] },
+        { url: `${import.meta.env.BASE_URL}data/products.json` },
+    );
+    const { data: plans } = useReactQuery<TPlans>(
+        { queryKey: ['plans'] },
+        { url: `${import.meta.env.BASE_URL}/data/plans.json` },
+    );
 
     useEffect(() => {
         loadSecuritySystem();
