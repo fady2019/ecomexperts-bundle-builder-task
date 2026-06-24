@@ -7,6 +7,7 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: '/ecomexperts-bundle-builder-task/',
     plugins: [react(), babel({ presets: [reactCompilerPreset()] }), tailwindcss(), svgr()],
     resolve: {
         alias: {
